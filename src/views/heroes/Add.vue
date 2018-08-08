@@ -16,7 +16,27 @@
 </template>
 <script>
   export default {
-
+    data() {
+      return {
+        formData: {
+          name: '',
+          gender: ''
+        }
+      }
+    },
+    methods: {
+      handleAdd() {
+        axios
+          .post('http://127.0.0.1:3001/heroes', this.formData)
+          .then((response)=>{
+            if(response.status == 201){
+              this.$router.push('/heroes')
+            } else {
+              alert('添加失败');
+            }
+          })
+      }
+    }
   }
 </script>
 <style>
