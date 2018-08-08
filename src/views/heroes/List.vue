@@ -22,7 +22,7 @@
                   <!-- <a href="edit.html">edit</a> -->
                   <router-link :to="'/heroes/' + item.id">edit</router-link>
                   &nbsp;&nbsp;
-                  <a href="javascript:window.confirm('Are you sure?')">delete</a>
+                  <a @click="handDelete(item.id)" href="javascript:void(0)">delete</a>
                 </td>
               </tr>
             </tbody>
@@ -33,7 +33,7 @@
 <script>
  import axios from 'axios';
   export default {
-    // 导入axios模
+    // 导入axios模块
 
       data() {
         return  {
@@ -42,7 +42,11 @@
       },
        // 发送异步请求，获取数据
       created() {
-        axios
+        this.loadData()
+      },
+      methods: {
+        loadData(){
+          axios
           .get('http://127.0.0.1:3001/heroes')
           .then((response)=>{
             if(response.status == 200) {
@@ -52,6 +56,24 @@
           .catch((err)=>{
             console.log(err);
           })
+        },
+        handDelete(id) {
+          if(!confirm('是否确认删除数据')){
+            return;
+          }
+          axios
+            .delete(`http://127.0.0.1:3001/heroes/${id}`)
+            .then((response)=>{
+              if(response.status == 200){
+                this.loadData();
+              } else {
+                alert('删除失败');
+              }
+            })
+            .catch((err)=>{
+              console.log(err);
+            })
+        }
       }
 
   }
