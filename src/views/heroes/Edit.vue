@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="sub-header">添加英雄</h2>
+    <h2 class="sub-header">修改英雄</h2>
     <form>
       <div class="form-group">
         <label for="name">英雄名称</label>
@@ -14,8 +14,21 @@
     </form>
   </div>
 </template>
+ <script>
+export default {
+  data() {
+    return {
+      formData: {
+        name: '',
+        gender: ''
+      }
+    }
+  }
+};
+</script>
+ <style>
+ </style>
 <script>
-  import axios from 'axios';
   export default {
     data() {
       return {
@@ -23,19 +36,6 @@
           name: '',
           gender: ''
         }
-      }
-    },
-    methods: {
-      handleAdd() {
-        axios
-          .post('http://127.0.0.1:3001/heroes', this.formData)
-          .then((response)=>{
-            if(response.status == 201){
-              this.$router.push('/heroes')
-            } else {
-              alert('添加失败');
-            }
-          })
       }
     }
   }
