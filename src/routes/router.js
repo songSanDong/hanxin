@@ -8,7 +8,10 @@ import WeaponsList from '../views/weapons/List.vue';
 Vue.use(VueRouter);
 //创建路由  路由规则
 var router = new VueRouter({
+    // 配置激活的类样式
+  linkExactActiveClass: 'active',
   routes: [
+    { path: '/', redirect: '/heroes' },
     { name: 'heroes', path: '/heroes', component: HeroesList },
     { name: 'equips', path: '/equips', component: EquipsList },
     { name: 'weapons', path: '/weapons', component: WeaponsList }

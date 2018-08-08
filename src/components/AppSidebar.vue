@@ -1,9 +1,9 @@
 <template>
    <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
-        <li><a href="#">打野英雄</a></li>
-        <li><a href="#">射手英雄</a></li>
-        <li><a href="#">法师英雄</a></li>
+        <router-link tag="li" to="/heroes"><a href="#">打野英雄</a></router-link>
+        <router-link tag="li" to="/equips"><a href="#">法师英雄</a></router-link>
+        <router-link tag="li" to="/weapons"><a href="#">法师英雄</a></router-link>
       </ul>
     </div>
 </template>
