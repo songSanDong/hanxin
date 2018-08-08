@@ -6,7 +6,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>#</th>
+                <th>ID</th>
                 <th>姓名</th>
                 <th>性别</th>
                 <th>操作</th>
@@ -20,9 +20,9 @@
                 <td>{{ item.gender }}</td>
                 <td>
                   <!-- <a href="edit.html">edit</a> -->
-                  <router-link :to="'/heroes/' + item.id">edit</router-link>
+                  <router-link :to="'/heroes/' + item.id">编辑</router-link>
                   &nbsp;&nbsp;
-                  <a @click="handDelete(item.id)" href="javascript:void(0)">delete</a>
+                  <a @click="handDelete(item.id)" href="javascript:void(0)">删除</a>
                 </td>
               </tr>
             </tbody>
