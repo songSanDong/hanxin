@@ -18,8 +18,6 @@
                 <td>{{ index + 1 }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.gender }}</td>
-                <td>in</td>
-                <td>libero</td>
                 <td>
                   <a href="edit.html">edit</a>
                   &nbsp;&nbsp;
